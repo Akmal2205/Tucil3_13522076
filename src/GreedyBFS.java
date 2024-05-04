@@ -47,7 +47,7 @@ public class GreedyBFS extends BaseClass {
         ucs.GreedyBFSRecursion();
         final long endTime = System.currentTimeMillis();
         ucs.printPath(ucs.gbfs_buffer);
-        System.out.println("Took : " + (endTime - startTime) + "ms");
+        System.out.println("Took " + (endTime - startTime) + "ms to execute");
         System.out.println("Visited " + (ucs.gbfs_buffer.size() - 1) + " node(s)");
     }
 }

@@ -13,7 +13,7 @@ public class WordValidator {
 
     public WordValidator(String word) {
         File file = new File(
-                "C:\\Users\\ASUS\\Documents\\Sem 4\\Stima\\Tucil3_13522076\\" + this.dictionary_filename);
+                "C:\\Users\\ASUS\\Documents\\Sem 4\\Stima\\Tucil3_13522076\\src\\Utils\\" + this.dictionary_filename);
         BufferedReader br = null;
         try {
             br = new BufferedReader(new FileReader(file));

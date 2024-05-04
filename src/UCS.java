@@ -57,7 +57,7 @@ public class UCS extends BaseClass {
         res = (ucs.UCSPrioQueue());
         final long endTime = System.currentTimeMillis();
         ucs.printPath(res.current_path);
-        System.out.println("Took : " + (endTime - startTime) + "ms");
+        System.out.println("Took " + (endTime - startTime) + "ms to execute");
         System.out.println("Visited " + ucs.visited.size() + " node(s)");
     }
 }

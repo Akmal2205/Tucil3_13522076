@@ -65,7 +65,7 @@ public class Astar extends BaseClass {
         res = (as.AstarPrioQueue());
         final long endTime = System.currentTimeMillis();
         as.printPath(res.current_path);
-        System.out.println("Took : " + (endTime - startTime) + "ms");
+        System.out.println("Took " + (endTime - startTime) + "ms to execute");
         System.out.println("Visited " + as.visited.size() + " node(s)");
     }
 
