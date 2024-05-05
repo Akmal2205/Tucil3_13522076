@@ -31,6 +31,17 @@ public class UCS extends BaseClass {
         return exp_word;
     }
 
+    public String toPath(ArrayList<String> path) {
+        String res = "";
+        for (int i = 0; i < path.size() - 1; i++) {
+            if (!path.get(i).equals(" ")) {
+                res += path.get(i).toString() + "->";
+            }
+        }
+        res += path.get(path.size() - 1).toString();
+        return res;
+    }
+
     public Node UCSPrioQueue() {
         while (!this.simpul_hidup.isEmpty()) {
             Node current_node = this.simpul_hidup.poll();
@@ -50,14 +61,19 @@ public class UCS extends BaseClass {
         return this.simpul_hidup.poll(); // dummy return
     }
 
-    public void mainUCS() {
+    public String[] mainUCS() {
         UCS ucs = new UCS(this.start_word, this.end_word);
         Node res = new Node(null, null);
+        String[] result = { "No Path", "Took 0ms to execute", "Visited 0 node(s)" };
         final long startTime = System.currentTimeMillis();
         res = (ucs.UCSPrioQueue());
         final long endTime = System.currentTimeMillis();
         ucs.printPath(res.current_path);
+        result[0] = ucs.toPath(res.current_path);
+        result[1] = "Took " + (endTime - startTime) + "ms to execute";
+        result[2] = "Visited " + ucs.visited.size() + " node(s)";
         System.out.println("Took " + (endTime - startTime) + "ms to execute");
         System.out.println("Visited " + ucs.visited.size() + " node(s)");
+        return result;
     }
 }

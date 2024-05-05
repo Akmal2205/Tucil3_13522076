@@ -11,9 +11,9 @@ public class GreedyComparator extends BaseClass implements Comparator<String> {
         int value1 = this.costCounter(el1);
         int value2 = this.costCounter(el2);
         if (value1 > value2) {
-            return 1;
-        } else if (value1 < value2) {
             return -1;
+        } else if (value1 < value2) {
+            return 1;
         }
         return 0;
     }

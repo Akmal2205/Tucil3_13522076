@@ -33,6 +33,17 @@ public class Astar extends BaseClass {
         return exp_word;
     }
 
+    public String toPath(ArrayList<String> path) {
+        String res = "";
+        for (int i = 0; i < path.size() - 1; i++) {
+            if (!path.get(i).equals(" ")) {
+                res += path.get(i).toString() + "->";
+            }
+        }
+        res += path.get(path.size() - 1).toString();
+        return res;
+    }
+
     public Node AstarPrioQueue() {
         while (!this.simpul_hidup.isEmpty()) {
             Node current_node = this.simpul_hidup.poll();
@@ -58,15 +69,20 @@ public class Astar extends BaseClass {
         return this.simpul_hidup.poll(); // dummy return
     }
 
-    public void mainAstar() {
+    public String[] mainAstar() {
         Astar as = new Astar(this.start_word, this.end_word);
         Node res = new Node(null, null);
+        String[] result = { "No Path", "Took 0ms to execute", "Visited 0 node(s)" };
         final long startTime = System.currentTimeMillis();
         res = (as.AstarPrioQueue());
         final long endTime = System.currentTimeMillis();
+        result[0] = as.toPath(res.current_path);
+        result[1] = "Took " + (endTime - startTime) + "ms to execute";
+        result[2] = "Visited " + as.visited.size() + " node(s)";
         as.printPath(res.current_path);
         System.out.println("Took " + (endTime - startTime) + "ms to execute");
         System.out.println("Visited " + as.visited.size() + " node(s)");
+        return result;
     }
 
 }

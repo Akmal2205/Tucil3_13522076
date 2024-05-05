@@ -45,6 +45,17 @@ public class BaseClass {
         System.out.println(path.get(path.size() - 1));
     }
 
+    public String toPath(ArrayList<String> path) {
+        String res = "";
+        for (int i = 0; i < path.size() - 1; i++) {
+            if (!path.get(i).equals(" ")) {
+                res += path.get(i).toString() + "->";
+            }
+        }
+        res += path.get(path.size() - 1).toString();
+        return res;
+    }
+
     // public static void main(String[] args) {
     // WordValidator w = new WordValidator();
     // final long startTime = System.currentTimeMillis();
