@@ -9,10 +9,11 @@ public class GUI extends JFrame {
     final private Font mainFont = new Font("Georgia", Font.BOLD, 18);
     private String selected;
     JTextField tfStartWord, tfEndWord;
-    private String[] images1 = { "Cukurukuk.jpg", "lesgo.jpeg", "Bener.jpeg" };
-    private String[] images2 = { "Lalu.jpeg", "Depresi.jpeg", "Hoaks.jpeg" };
+    private String[] images1 = { "Cukurukuk.jpg", "lesgo.jpeg", "Bener.jpeg", "Lantas.jpeg" };
+    private String[] images2 = { "Lalu.jpeg", "Depresi.jpeg", "Hoaks.jpeg", "Awas.jpeg", "Galogis.jpeg" };
     private Random random = new Random();
-    private int random_idx = random.nextInt(images1.length);
+    private int random_idx1 = random.nextInt(images1.length);
+    private int random_idx2 = random.nextInt(images2.length);
 
     public void intialize() {
         JLabel lbStartWord = new JLabel("Start word");
@@ -32,7 +33,7 @@ public class GUI extends JFrame {
 
         ImageIcon img1 = new ImageIcon(
                 "C:\\Users\\ASUS\\Documents\\Sem 4\\Stima\\Tucil3_13522076\\src\\Utils\\"
-                        + images1[random_idx]);
+                        + images1[random_idx1]);
         JLabel image1 = new JLabel(img1);
         JPanel image1Panel = new JPanel(new FlowLayout(FlowLayout.CENTER, 0, 0));
         image1Panel.add(image1);
@@ -42,7 +43,7 @@ public class GUI extends JFrame {
 
         ImageIcon img2 = new ImageIcon(
                 "C:\\Users\\ASUS\\Documents\\Sem 4\\Stima\\Tucil3_13522076\\src\\Utils\\"
-                        + images2[random_idx]);
+                        + images2[random_idx2]);
         JLabel image2 = new JLabel(img2);
         JPanel image2Panel = new JPanel(new FlowLayout(FlowLayout.CENTER, 0, 0));
         image2Panel.add(image2);
@@ -98,7 +99,7 @@ public class GUI extends JFrame {
         resultPanel.add(image1Panel);
         resultPanel.add(image2Panel);
 
-        JButton btnSearch = new JButton("Search");
+        JButton btnSearch = new JButton("Solve");
         btnSearch.setFont(mainFont);
         btnSearch.addActionListener(new ActionListener() {
 
@@ -109,16 +110,17 @@ public class GUI extends JFrame {
                 Main main = new Main();
                 String res = main.MainGUI(selected, startWord, endWord);
                 tfPath.setText(res);
-                random_idx = random.nextInt(images1.length);
-                System.out.println(random_idx);
+                random_idx1 = random.nextInt(images1.length);
+                random_idx2 = random.nextInt(images2.length);
+                // System.out.println(random_idx);
                 ImageIcon img1 = new ImageIcon(
                         "C:\\Users\\ASUS\\Documents\\Sem 4\\Stima\\Tucil3_13522076\\src\\Utils\\"
-                                + images1[random_idx]);
+                                + images1[random_idx1]);
                 image1.setIcon(img1);
 
                 ImageIcon img2 = new ImageIcon(
                         "C:\\Users\\ASUS\\Documents\\Sem 4\\Stima\\Tucil3_13522076\\src\\Utils\\"
-                                + images2[random_idx]);
+                                + images2[random_idx2]);
                 image2.setIcon(img2);
 
                 image2Panel.setVisible(false);
