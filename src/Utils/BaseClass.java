@@ -19,7 +19,7 @@ public class BaseClass {
     public int costCounter(String word) {
         int counter = 0;
         for (int i = 0; i < end_word.length(); i++) {
-            if (end_word.toLowerCase().charAt(i) == word.toLowerCase().charAt(i)) {
+            if (end_word.toLowerCase().charAt(i) != word.toLowerCase().charAt(i)) {
                 counter++;
             }
         }

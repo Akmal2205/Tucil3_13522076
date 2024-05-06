@@ -22,14 +22,21 @@ public class GUI extends JFrame {
         tfStartWord = new JTextField();
         tfStartWord.setFont(mainFont);
 
-        JLabel lbEndWord = new JLabel("End word");
-        lbEndWord.setFont(mainFont);
-
         tfEndWord = new JTextField();
         tfEndWord.setFont(mainFont);
 
-        JLabel tfPath = new JLabel();
+        JLabel lbEndWord = new JLabel("End word");
+        lbEndWord.setFont(mainFont);
+
+        JTextArea tfPath = new JTextArea();
         tfPath.setFont(mainFont);
+        tfPath.setLineWrap(true);
+        JTextArea tfTime = new JTextArea();
+        tfTime.setFont(mainFont);
+        tfTime.setLineWrap(true);
+        JTextArea tfNode = new JTextArea();
+        tfNode.setFont(mainFont);
+        tfNode.setLineWrap(true);
 
         ImageIcon img1 = new ImageIcon(
                 "C:\\Users\\ASUS\\Documents\\Sem 4\\Stima\\Tucil3_13522076\\src\\Utils\\"
@@ -87,9 +94,16 @@ public class GUI extends JFrame {
         formPanel.add(tfEndWord);
         formPanel.add(radioButtonsPanel);
 
-        JPanel pathPanel = new JPanel(new FlowLayout(FlowLayout.CENTER));
+        JPanel pathPanel = new JPanel();
         pathPanel.setOpaque(false);
+        pathPanel.setLayout(new BoxLayout(pathPanel, BoxLayout.Y_AXIS));
+        tfPath.setAlignmentX(Component.CENTER_ALIGNMENT);
+        tfTime.setAlignmentX(Component.CENTER_ALIGNMENT);
+        tfNode.setAlignmentX(Component.CENTER_ALIGNMENT);
+
         pathPanel.add(tfPath);
+        pathPanel.add(tfTime);
+        pathPanel.add(tfNode);
 
         JPanel resultPanel = new JPanel();
         resultPanel.setLayout(new BoxLayout(resultPanel, BoxLayout.Y_AXIS));
@@ -108,8 +122,10 @@ public class GUI extends JFrame {
                 String startWord = tfStartWord.getText();
                 String endWord = tfEndWord.getText();
                 Main main = new Main();
-                String res = main.MainGUI(selected, startWord, endWord);
-                tfPath.setText(res);
+                String[] res = main.MainGUI(selected, startWord, endWord);
+                tfPath.setText(res[0]);
+                tfTime.setText(res[1]);
+                tfNode.setText(res[2]);
                 random_idx1 = random.nextInt(images1.length);
                 random_idx2 = random.nextInt(images2.length);
                 // System.out.println(random_idx);
@@ -125,7 +141,7 @@ public class GUI extends JFrame {
 
                 image2Panel.setVisible(false);
                 image1Panel.setVisible(false);
-                if (res.equals("Invalid Input!")) {
+                if (res[0].equals("Invalid Input!")) {
                     image2Panel.setVisible(true);
                 } else {
                     image1Panel.setVisible(true);
@@ -143,6 +159,8 @@ public class GUI extends JFrame {
                 tfStartWord.setText("");
                 tfEndWord.setText("");
                 tfPath.setText("");
+                tfTime.setText("");
+                tfNode.setText("");
                 image1Panel.setVisible(false);
                 image2Panel.setVisible(false);
             }

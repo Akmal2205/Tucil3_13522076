@@ -59,7 +59,7 @@ public class UCS extends BaseClass {
         }
         // System.out.println(this.simpul_hidup);
         Node no_res = new Node(null, null);
-        return this.simpul_hidup.poll(); // dummy return
+        return no_res; // dummy return
     }
 
     public String[] mainUCS() {

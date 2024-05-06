@@ -57,29 +57,23 @@ public class Main {
 
     }
 
-    public String MainGUI(String option, String start, String end) {
+    public String[] MainGUI(String option, String start, String end) {
         WordValidator w = new WordValidator(start);
-        String res = "Invalid Input!";
+        String[] res = { "Invalid Input!", "-", "-" };
         if (w.isWordValid(start) && w.isWordValid(end)) {
             if (option.equalsIgnoreCase("UCS")) { // UCS
                 UCS ucs = new UCS(start, end);
                 String[] result = ucs.mainUCS();
-                res = "<html>" + "<br>" + result[0] + "<br>" + "<br>" + result[1] + "<br>" + "<br>" +
-                        result[2]
-                        + "</html>";
+                res = result;
             } else if (option.equalsIgnoreCase("GreedyBFS")) { // GreedyBFS
                 GreedyBFS g = new GreedyBFS(start, end);
                 String[] result = g.mainGBFS();
-                res = "<html>" + "<br>" + result[0] + "<br>" + "<br>" + result[1] + "<br>" + "<br>" +
-                        result[2]
-                        + "</html>";
+                res = result;
             } else { // A star
                 Astar as = new Astar(start, end);
                 as.mainAstar();
                 String[] result = as.mainAstar();
-                res = "<html>" + "<br>" + result[0] + "<br>" + "<br>" + result[1] + "<br>" + "<br>" +
-                        result[2]
-                        + "</html>";
+                res = result;
             }
         }
         return res;
