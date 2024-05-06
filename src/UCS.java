@@ -57,8 +57,7 @@ public class UCS extends BaseClass {
                 }
             }
         }
-        // System.out.println(this.simpul_hidup);
-        Node no_res = new Node(null, null);
+        Node no_res = null;
         return no_res; // dummy return
     }
 

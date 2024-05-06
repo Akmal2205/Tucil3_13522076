@@ -55,12 +55,4 @@ public class BaseClass {
         res += path.get(path.size() - 1).toString();
         return res;
     }
-
-    // public static void main(String[] args) {
-    // WordValidator w = new WordValidator();
-    // final long startTime = System.currentTimeMillis();
-    // System.out.println(w.isWordValid("shay"));
-    // final long endTime = System.currentTimeMillis();
-    // System.out.println("Took : " + (endTime - startTime) + "ms");
-    // }
 }

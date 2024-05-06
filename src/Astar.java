@@ -1,5 +1,4 @@
 import java.util.*;
-import java.util.concurrent.TimeUnit;
 
 import Utils.*;
 
@@ -71,7 +70,7 @@ public class Astar extends BaseClass {
                 }
             }
         }
-        Node no_res = new Node(null, null);
+        Node no_res = null;
         return no_res; // dummy return
     }
 
