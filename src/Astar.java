@@ -76,10 +76,12 @@ public class Astar extends BaseClass {
         final long startTime = System.currentTimeMillis();
         res = (as.AstarPrioQueue());
         final long endTime = System.currentTimeMillis();
-        result[0] = as.toPath(res.current_path);
+        if (res != null) {
+            as.printPath(res.current_path);
+            result[0] = as.toPath(res.current_path);
+        }
         result[1] = "Took " + (endTime - startTime) + "ms to execute";
         result[2] = "Visited " + as.visited.size() + " node(s)";
-        as.printPath(res.current_path);
         System.out.println("Took " + (endTime - startTime) + "ms to execute");
         System.out.println("Visited " + as.visited.size() + " node(s)");
         return result;

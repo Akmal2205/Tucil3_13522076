@@ -58,6 +58,7 @@ public class UCS extends BaseClass {
             }
         }
         // System.out.println(this.simpul_hidup);
+        Node no_res = new Node(null, null);
         return this.simpul_hidup.poll(); // dummy return
     }
 
@@ -68,8 +69,10 @@ public class UCS extends BaseClass {
         final long startTime = System.currentTimeMillis();
         res = (ucs.UCSPrioQueue());
         final long endTime = System.currentTimeMillis();
-        ucs.printPath(res.current_path);
-        result[0] = ucs.toPath(res.current_path);
+        if (res != null) {
+            ucs.printPath(res.current_path);
+            result[0] = ucs.toPath(res.current_path);
+        }
         result[1] = "Took " + (endTime - startTime) + "ms to execute";
         result[2] = "Visited " + ucs.visited.size() + " node(s)";
         System.out.println("Took " + (endTime - startTime) + "ms to execute");
