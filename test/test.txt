@@ -1,0 +1,7 @@
+Test case untuk 3 algoritma:
+Soft -> Ware
+Gray -> Play
+Flying -> Create
+Laptop -> Beaten
+Tame -> Mild
+Dirty -> Clean
